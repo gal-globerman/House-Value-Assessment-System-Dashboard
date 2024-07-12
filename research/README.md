@@ -1,6 +1,6 @@
 # ML-project
 
-## Организация проекта
+## Project Organization
 ```
 
     ├── README.md                <- The top-level README for developers using this project.
@@ -38,9 +38,9 @@
     └── poetry.lock              <- locks for libraries
 ```
 
-Проект базируется на шаблоне [cookiecutter-data-science](https://drivendata.github.io/cookiecutter-data-science/)
-со следующими изменениями:
-- requirements.txt заменен на poetry
-- удалены setup.py, test_environment.py, tox.ini
-- переработан Makefile
-- переход от Sphinx к Quarto документации
+The project is based on the [cookiecutter-data-science](https://drivendata.github.io/cookiecutter-data-science/) template with the following changes:
+
+- requirements.txt replaced with Poetry
+- setup.py, test_environment.py, and tox.ini removed
+- Makefile redesigned
+- Transition from Sphinx to Quarto documentation

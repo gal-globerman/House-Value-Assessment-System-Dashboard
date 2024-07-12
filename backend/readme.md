@@ -1,16 +1,15 @@
-# Сервис для сервинга модели
+# Model Serving Service
 
-## Описание
-Сервис позволяет прогнозировать цену квартиры в пределах г. Перми.
+## Description
+This service allows for predicting apartment prices within the city of Perm.
 
-При старте приложения актуальная модель подгружается из MLflow Model Registry
+When the application starts, the current model is loaded from the MLflow Model Registry.
 
-Есть два эндопинта для прогноза: с адресом и с координатами дома. 
-Если используется первый эндпоинт, то требует токена для использования сервиса Geoapify.
+There are two endpoints for predictions: one using an address and the other using the house's coordinates. If the first endpoint is used, a token for the Geoapify service is required.
 
-## Запуск
+## Startup
 
-### Требуемые переменные окружения
+### Required Environment Variables
 ```env
 GEOAPIFY_TOKEN=<GEOAPIFY_TOKEN>
 MLFLOW_TRACKING_URI=<TRACKING_URI>
@@ -23,9 +22,8 @@ DISTRICTS_GEOJSON_PATH=src/static/perm_district.json
 AMENITY_DIR_PATH=src/static/amenity
 LOGGING_URL=http://localhost:3100/loki/api/v1/push
 ```
-### Развертывание с помощью docker compose
+### Deployment Using Docker Compose
 ```bash
 docker-compose up -d
 ```
-Для локальной разработки использовать docker-compose.local.yaml
-
+For local development, use docker-compose.local.yaml.

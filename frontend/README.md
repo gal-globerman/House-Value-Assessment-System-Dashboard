@@ -1,10 +1,10 @@
-# Frontend для сервиса прогнозироования цены на недвижимость в Перми
+# Frontend for Real Estate Price Prediction Service in Perm
 
-## Использование внешнего API
+## Using External APIs
 
 ### Overpass Turbo API
 
-Для получения границ районов Перми используется следующий запрос:
+To obtain the boundaries of districts in Perm, the following query is used:
 ```overpass-turbo
 [out:json][timeout:25];
 relation["boundary"="administrative"]["admin_level" = "9"]["type" = "boundary"]({{bbox}});
@@ -13,16 +13,16 @@ out geom;
 
 ### Maptiler
 
-Для использования подложки для карты используется сервис Maptiler, в котором можно получить токен и настроить под себя карту
+For using a map background, the Maptiler service is utilized, where you can obtain a token and customize your map.
 
-Токен нужно указать в переменных окружения:
+The token needs to be specified in the environment variables:
 ```env
 VITE_BASE_MAP_URL=https://api.maptiler.com/maps/<maps-id>/style.json?key=<key>
 ```
 
-## Запуск
+## Startup
 
-### Переменные окружения для разработки
+### Environment Variables for Development
 
 ```env
 VITE_BASE_MAP_URL=<YOUR-MAP-WITH-TOKEN>
@@ -30,7 +30,7 @@ VITE_MODE=dev
 VITE_API_HOST=http://127.0.0.1:8000
 ```
 
-### Переменные окружения для сборки
+Environment Variables for Production Build
 
 ```env
 VITE_BASE_MAP_URL=<YOUR-MAP-WITH-TOKEN>

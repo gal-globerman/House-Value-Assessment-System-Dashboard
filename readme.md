@@ -1,16 +1,17 @@
-# ML-проект по прогнозу цены на недвижимость
+# ML Project for Real Estate Price Prediction
 
-## Архитектура системы
+## System Architecture
 
-![Архитектура системы](https://github.com/Daniil-Solo/MLOps-House-Price-Prediction/blob/master/visual/architecture-1.png)
+![System Architecture](https://github.com/gal-globerman/House-Value-Assessment-System-Dashboard/blob/master/visual/architecture-1.png)
 
-## Исследование
 
-- Данные версионируются с помощью DVC
-- Для каждого этапа обработки данных создан CLI-скрипт
-- Эксперименты логируются с помощью MLflow
+## Research
+- Data is versioned using DVC
+- A CLI script is created for each data processing stage
+- Experiments are logged using MLflow
 
-Даг обработки данных
+
+Data Processing DAG
 ```mermaid
 flowchart TD                       
         node1["add_coordinates"]   
@@ -25,33 +26,32 @@ flowchart TD
         node4-->node2
 ```
 
-![Бакеты в S3-хранилище](https://github.com/Daniil-Solo/MLOps-House-Price-Prediction/blob/master/visual/minio-1.png)
-![Эксперименты](https://github.com/Daniil-Solo/MLOps-House-Price-Prediction/blob/master/visual/mlflow-1.png)
-![Артефакты модели](https://github.com/Daniil-Solo/MLOps-House-Price-Prediction/blob/master/visual/mlflow-3.png)
+![Buckets in S3 storage](https://github.com/gal-globerman/House-Value-Assessment-System-Dashboard/blob/master/visual/minio-1.png)
+![Experiments](https://github.com/gal-globerman/House-Value-Assessment-System-Dashboard/blob/master/visual/mlflow-1.png)
+![Model Artifacts](https://github.com/gal-globerman/House-Value-Assessment-System-Dashboard/blob/master/visual/mlflow-3.png)
 
-## Инфраструктура
-
-- Minio (бакеты для DVC и MLflow)
+## Infrastructure
+- Minio (buckets for DVC and MLflow)
 - MLflow, PostgreSQL, PgAdmin
 - Prometheus, Loki, Grafana
 
-![Мониторинг в Grafana](https://github.com/Daniil-Solo/MLOps-House-Price-Prediction/blob/master/visual/grafana-1.png)
+![Monitoring in Grafana](https://github.com/gal-globerman/House-Value-Assessment-System-Dashboard/blob/master/visual/grafana-1.png)
 
-## Бэкенд, сервинг модели
 
+## Backend, Model Serving
 - FastAPI, Catboost
-- Загружает актуальную модель из Model Registry
-- Отправляет логи в Loki
-- Отдает метрики для Prometheus
+- Loads the current model from Model Registry
+- Sends logs to Loki
+- Provides metrics for Prometheus
 
-![Swagger документация](https://github.com/Daniil-Solo/MLOps-House-Price-Prediction/blob/master/visual/swagger-1.png)
+![Swagger Documentation](https://github.com/gal-globerman/House-Value-Assessment-System-Dashboard/blob/master/visual/swagger-1.png)
 
-## Фронтенд
 
+## Frontend
 - Vite, React, Maplibre, MUI
-- Предоставляет пользователю интерфейс в виде карты
-- Аналитика распределения квартир
-- Прогноз стоимости на основе характеристик дома и квартиры
+- Provides users with a map interface
+- Apartment distribution analytics
+- Price prediction based on house and apartment characteristics
 
-![Аналитика конкурентов](https://github.com/Daniil-Solo/MLOps-House-Price-Prediction/blob/master/visual/application-3.png)
-![Прогноз по характеристикам](https://github.com/Daniil-Solo/MLOps-House-Price-Prediction/blob/master/visual/application-5.png)
+![Analysis](https://github.com/gal-globerman/House-Value-Assessment-System-Dashboard/blob/master/visual/application-3.png)
+![Forecast by Characteristics](https://github.com/gal-globerman/House-Value-Assessment-System-Dashboard/blob/master/visual/application-5.png)
